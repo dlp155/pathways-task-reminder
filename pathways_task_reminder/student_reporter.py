@@ -1,12 +1,13 @@
-from pathways_task_reminder.pdf_table_parser import PDFTableParser
 import dataclasses
-import pandas as pd
+import tempfile
 from pathlib import Path
+
+import pandas as pd
+
 from pathways_task_reminder import constants as const
+from pathways_task_reminder.pdf_table_parser import PDFTableParser
 from pathways_task_reminder.utils.dataframe import to_table
 from pathways_task_reminder.utils.html import to_image_path as html_path_to_png_path
-
-import tempfile
 
 
 @dataclasses.dataclass
@@ -36,15 +37,43 @@ class StudentReport:
         skill_df_wo_level = self.skill_df.drop(self.LEVEL, axis=0)
         skill_df = skill_df_wo_level.rename(columns=self.SKILL_DISPLAY)
         parts = [
+            self._create_styling(),
             "<br/>",
             to_table(assignment_df),
             "<br/>",
             to_table(skill_df),
-            "<br/>",
-            f"{self.MEAN_UNITS_TEXT}: {mean_units_per_week:.1f}",
-            "<br/>",
+            self._create_paragraph(
+                f"{self.MEAN_UNITS_TEXT}: {mean_units_per_week:.1f}"
+            ),
         ]
         return "\n".join(parts)
+
+    @staticmethod
+    def _create_paragraph(text):
+        return f"<p>{text}</p>"
+
+    def _create_styling(self):
+        style_block = """<style>
+        table, th, td {
+            border: 1px solid #d3d3d3;
+            border-collapse: collapse;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        th {
+            text-align: center;
+            padding: 6px;
+            background-color: #f9f9f9;
+        }
+        td {
+            text-align: left;
+            padding: 5px;
+        }
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 90%;
+        }
+        </style>\n"""
+        return style_block
 
     def to_image(self):
         html = self.to_html()
