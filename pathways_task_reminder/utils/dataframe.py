@@ -21,23 +21,5 @@ def to_table(df: pd.DataFrame, format: str = "html"):
         rows,
         headers=header_row,
         tablefmt="html",
-        # numalign="right"
     )
-
-    style_block = """<style>
-    table, th, td {
-        border: 1px solid #d3d3d3;
-        border-collapse: collapse;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    th {
-        text-align: center;
-        padding: 6px;
-        background-color: #f9f9f9;
-    }
-    td {
-        text-align: left;
-        padding: 5px;
-    }
-    </style>\n"""
-    return style_block + tabulate_data
+    return tabulate_data
