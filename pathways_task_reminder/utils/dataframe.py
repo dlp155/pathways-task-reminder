@@ -28,6 +28,7 @@ def to_table(df: pd.DataFrame, format: str = "html"):
     table, th, td {
         border: 1px solid #d3d3d3;
         border-collapse: collapse;
+        font-family: Arial, Helvetica, sans-serif;
     }
     th {
         text-align: center;
@@ -36,7 +37,7 @@ def to_table(df: pd.DataFrame, format: str = "html"):
     }
     td {
         text-align: left;
-        padding: 6px;
+        padding: 5px;
     }
     </style>\n"""
     return style_block + tabulate_data
