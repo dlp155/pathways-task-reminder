@@ -19,7 +19,7 @@ class StudentReport:
     UNITS = "units"
     SKILL_INDEX = [LEVEL, UNITS]
     SKILL_VALUES = "skill"
-    MEAN_UNITS_TEXT = "Avg units completed e/ wk of semester"
+    MEAN_UNITS_TEXT = "Average units completed each week of semester"
 
     # If not present keeps current name
     SKILL_DISPLAY = {
