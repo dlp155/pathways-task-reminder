@@ -57,7 +57,7 @@ if uploaded_file:
         )
         for name, image_path in image_paths_by_name.items():
             st.divider()
-            message= "Hi " + name.split(" ")
+            message= "Hi " + name.split(" ")[0]
             name_output = name + "\n" + message
             st.image(str(image_path), caption=name_output, use_container_width=False)
 
