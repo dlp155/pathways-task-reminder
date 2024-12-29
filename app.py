@@ -55,7 +55,9 @@ if uploaded_file:
             "HINT: If on phone can press on an image and then share to texting application. "
             "If on computer, can drag and drop images directly into texting applications. "
         )
-        for i,name, image_path in enumerate(image_paths_by_name.items()):
+        i = 0
+        for name, image_path in image_paths_by_name.items():
+            i += 1
             st.divider()
             message= "Hi " + name.split(" ")[0] + ","
             st.image(str(image_path), caption=name, use_container_width=False)
