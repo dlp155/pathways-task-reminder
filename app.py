@@ -55,13 +55,13 @@ if uploaded_file:
             "HINT: If on phone can press on an image and then share to texting application. "
             "If on computer, can drag and drop images directly into texting applications. "
         )
-        message_general = st.text_input("General Message","Some textafdfda ")
+        message_general = st.text_input("General Message","This information from your progress report should help you decide what your goal will be for this week.")
         i = 0
         for name, image_path in image_paths_by_name.items():
             i += 1
             st.divider()
             st.image(str(image_path), caption=name, use_container_width=False)
-            message = "Hi " + name.split(" ")[0] + "," + message_general
+            message = "Hi " + name.split(" ")[0] + "! " + message_general
             message_input = st.text_input("Message to Student",message,key=i)
             # with open(image_path, "rb") as img_file:
             #     image_bytes = img_file.read()
