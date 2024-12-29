@@ -57,10 +57,9 @@ if uploaded_file:
         )
         for name, image_path in image_paths_by_name.items():
             st.divider()
-            message= "Hi " + name.split(" ")[0]
-            name_output = name + "\n" + message
-            st.image(str(image_path), caption=name_output, use_container_width=False)
-
+            message= "Hi " + name.split(" ")[0] + ","
+            st.image(str(image_path), caption=name, use_container_width=False)
+            st.text(message + "\n" + "You are doing great. I liked the percent. Keep up the work.")
             # with open(image_path, "rb") as img_file:
             #     image_bytes = img_file.read()
             #     st.download_button(
