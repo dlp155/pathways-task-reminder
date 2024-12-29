@@ -57,7 +57,7 @@ if uploaded_file:
         )
         for name, image_path in image_paths_by_name.items():
             st.divider()
-            st.image(str(image_path), caption=name, use_container_width=False)
+            st.image(str(image_path), caption=name+"ddd", use_container_width=False)
 
             # with open(image_path, "rb") as img_file:
             #     image_bytes = img_file.read()
