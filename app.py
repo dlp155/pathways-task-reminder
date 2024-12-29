@@ -59,10 +59,9 @@ if uploaded_file:
         for name, image_path in image_paths_by_name.items():
             i += 1
             st.divider()
-            message= "Hi " + name.split(" ")[0] + ","
             st.image(str(image_path), caption=name, use_container_width=False)
-            message_input = st.text_input("Movie title", "Life of Brian",key=i)
-            st.text(message + "\n" + "You are doing great. I liked the percent. Keep up the work.")
+            message = "Hi " + name.split(" ")[0] + "," + "\n" + "You are doing great. I liked the percent. Keep up the work."
+            message_input = st.text_input("Message to Student",message,key=i)
             # with open(image_path, "rb") as img_file:
             #     image_bytes = img_file.read()
             #     st.download_button(
