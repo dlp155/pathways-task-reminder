@@ -8,7 +8,7 @@ from pathways_task_reminder.utils.version import get_version
 
 # Streamlit App
 version = get_version()
-st.title(f"Pathways Task Reminder (v{version})")
+st.title(f"Learner Progress Report (v{version})")
 
 uploaded_file = st.file_uploader(
     "Upload your Pathways Student Summary PDF", type=["pdf"]
