@@ -59,7 +59,7 @@ if uploaded_file:
             st.divider()
             message= "Hi " + name.split(" ")
             name_output = name + "\n" + message
-            st.image(str(image_path), caption=name, use_container_width=False)
+            st.image(str(image_path), caption=name_output, use_container_width=False)
 
             # with open(image_path, "rb") as img_file:
             #     image_bytes = img_file.read()
